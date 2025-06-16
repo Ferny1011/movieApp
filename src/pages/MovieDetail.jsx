@@ -128,13 +128,13 @@ const MovieDetail = () => {
                         </div>
                     )}
 
-                    <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 mt-6">
-                        <div className="bg-[#28273d] rounded-lg p-4 shadow-md hover:scale-105 transition-transform duration-500">
+                    <div className="flex-col sm:flex-row gap-4 mt-6">
+                        <div className="bg-[#28273d] rounded-lg p-4 flex-1 text-center shadow-md hover:scale-105 transition-transform duration-500">
                             <p className="text-sm text-purple-400">Budget</p>
                             <p className="text-xl font-bold text-white">{movie.budget > 0 ? `$${movie.budget.toLocaleString()}` : "Not available"}</p>
                         </div>
 
-                        <div className="bg-[#28273d] rounded-lg p-4 shadow-md hover:scale-105 transition-transform duration-500">
+                        <div className="bg-[#28273d] rounded-lg p-4 flex-1 text-center shadow-md hover:scale-105 transition-transform duration-500">
                             <p className="text-sm text-purple-400">revenue</p>
                             <p className="text-xl font-bold text-white">{movie.revenue > 0 ? `$${movie.revenue.toLocaleString()}` : "Not available"}</p>
                         </div>
