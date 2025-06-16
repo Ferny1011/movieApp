@@ -84,9 +84,9 @@ MovieApp solves that by:
 🔐 Environment Variables
 Create a .env.local file in the root directory and add the following:
 
-VITE_TMDB_API_KEY=your_tmdb_api_key
-VITE_APPWRITE_PROJECT_ID=your_project_id
-VITE_APPWRITE_ENDPOINT=https://your-appwrite-endpoint
+`VITE_TMDB_API_KEY=your_tmdb_api_key`
+`VITE_APPWRITE_PROJECT_ID=your_project_id`
+`VITE_APPWRITE_ENDPOINT=https://your-appwrite-endpoint`
 
 
 
