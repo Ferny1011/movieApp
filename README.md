@@ -79,13 +79,12 @@ MovieApp solves that by:
 
 ## 📦 Installation
 
-`bash
-git clone https://github.com/Ferny1011/movie-app.git
-cd movie-app
-npm install
-npm run dev`
+`git clone https://github.com/Ferny1011/movie-app.git`
+`cd movie-app`
+`npm install`
+`npm run dev`
 
-## 🔐 Environment Variables
+🔐 Environment Variables
 Create a .env.local file in the root directory and add the following:
 
 VITE_TMDB_API_KEY=your_tmdb_api_key
