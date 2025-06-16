@@ -5,6 +5,8 @@ import { MdLocalMovies } from "react-icons/md";
 import { BiTime } from "react-icons/bi";
 import { motion } from 'framer-motion';
 import Spinner from "../components/Spinner.jsx";
+import { formatCurrency } from '../utils/formatCurrency';
+
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -24,6 +26,14 @@ const fadeUp = {
 const MovieDetail = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 640); // Tailwind 'sm'
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -128,16 +138,30 @@ const MovieDetail = () => {
                         </div>
                     )}
 
-                    <div className="flex-col sm:flex-row gap-4 mt-6">
-                        <div className="bg-[#28273d] rounded-lg p-4 flex-1 text-center shadow-md hover:scale-105 transition-transform duration-500">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 mt-6">
+
+                        <div className="bg-[#28273d] rounded-lg p-4 shadow-md hover:scale-105 transition-transform duration-500">
                             <p className="text-sm text-purple-400">Budget</p>
-                            <p className="text-xl font-bold text-white">{movie.budget > 0 ? `$${movie.budget.toLocaleString()}` : "Not available"}</p>
+                            <p className="text-xl font-bold text-white break-words">
+                                {movie.budget > 0
+                                    ? isMobile
+                                        ? formatCurrency(movie.budget)
+                                        : `$${movie.budget.toLocaleString()}`
+                                    : "Not available"}
+                            </p>
                         </div>
 
-                        <div className="bg-[#28273d] rounded-lg p-4 flex-1 text-center shadow-md hover:scale-105 transition-transform duration-500">
-                            <p className="text-sm text-purple-400">revenue</p>
-                            <p className="text-xl font-bold text-white">{movie.revenue > 0 ? `$${movie.revenue.toLocaleString()}` : "Not available"}</p>
+                        <div className="bg-[#28273d] rounded-lg p-4 shadow-md hover:scale-105 transition-transform duration-500">
+                            <p className="text-sm text-purple-400">Revenue</p>
+                            <p className="text-xl font-bold text-white break-words">
+                                {movie.revenue > 0
+                                    ? isMobile
+                                        ? formatCurrency(movie.revenue)
+                                        : `$${movie.revenue.toLocaleString()}`
+                                    : "Not available"}
+                            </p>
                         </div>
+
                     </div>
 
                     {trailer && (
