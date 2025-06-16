@@ -56,14 +56,11 @@ MovieApp solves that by:
 
 ## 📸 Screenshots
 
-![Home Page](./assets/home.png)  
-*Home screen with popular and top searched movies*
+![Home Page](src/assets/home.png)  
 
-![Movie Detail](./assets/detail.png)  
-*Detailed movie view*
+![Movie Detail](src/assets/detail.png)
 
-![Top Searches](./assets/top.png)  
-*Top movies dynamically powered by Appwrite*
+![Top Searches](src/assets/top.png)
 
 ---
 
